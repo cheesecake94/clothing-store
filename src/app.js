@@ -1,10 +1,9 @@
-import './app.css';
+import './app.scss';
+import HomePage from './pages/homepage/homepage.component';
 
-function App() {
+export const App = () => {
   return (
-    <div className="app-container">
-      <p>Hello World!</p>
-    </div>
+    <HomePage />
   );
 }
 
