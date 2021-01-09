@@ -1,0 +1,27 @@
+$main-color: black;
+$sub-color: grey;
+
+.group {
+  margin: 45px 0;
+
+  .form-input {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    color: $main-color;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid $sub-color;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .form-input-label {
+    color: $sub-color;
+    font-size: 13px;
+    font-weight: normal;
+    transition: 300ms ease all;
+  }
+}
