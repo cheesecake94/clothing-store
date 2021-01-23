@@ -1,9 +1,7 @@
-import { applyMiddleware, createStore } from 'redux';
-import logger from 'redux-logger';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import appReducer from './app.reducer';
 
-const middlewares = [logger];
-
-const appStore = createStore(appReducer, applyMiddleware(...middlewares));
+const appStore = createStore(appReducer, composeWithDevTools());
 
 export default appStore;
