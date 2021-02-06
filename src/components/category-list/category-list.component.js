@@ -1,24 +1,19 @@
-import { Component } from "react";
 import './category-list.component.scss';
 import CategoryItem from "../category-item/category-item.component";
-import CATEGORY_LIST_DATA from "./category-list.data";
+import { selectCategoryList } from '../../redux/categories/categories.selectors'
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
 
-class CategoryList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      categories: CATEGORY_LIST_DATA
-    }
-  }
-
-  render() {
-    return <div className="category-list">
-      {this.state.categories.map(({ id, title, imageUrl, size }) =>
-        <CategoryItem key={id} title={title} imageUrl={imageUrl} size={size} />
-      )}
-    </div>
-  }
+const CategoryList = ({ categories }) => {
+  return <div className="category-list">
+    {categories.map(({ id, ...otherProps }) =>
+      <CategoryItem key={id} {...otherProps} />
+    )}
+  </div>
 }
 
-export default CategoryList;
+const mapStateToProps = createStructuredSelector({
+  categories: selectCategoryList
+})
+
+export default connect(mapStateToProps)(CategoryList);
